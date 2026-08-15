@@ -3,9 +3,10 @@ import { NavLink, useLocation } from 'react-router-dom'
 import './Nav.css'
 
 const LINKS = [
-  { to: '/', label: 'Home' },
-  { to: '/about', label: 'About' },
-  { to: '/contact', label: 'Contact' },
+  { to: '/', label: 'Etusivu' },
+  { to: '/teemat', label: 'Teemat' },
+  { to: '/tietoa', label: 'Tietoa' },
+  { to: '/yhteystiedot', label: 'Yhteystiedot' },
 ]
 
 export default function Nav() {
@@ -30,7 +31,7 @@ export default function Nav() {
     <header className="nav">
       <div className="container nav__bar">
         <NavLink to="/" className="nav__brand">
-          Saara
+          Saara Kiventoyry
         </NavLink>
 
         <button
@@ -38,7 +39,7 @@ export default function Nav() {
           className="nav__toggle"
           aria-expanded={open}
           aria-controls={panelId}
-          aria-label={open ? 'Close menu' : 'Open menu'}
+          aria-label={open ? 'Sulje valikko' : 'Avaa valikko'}
           onClick={() => setOpen((v) => !v)}
         >
           <span
@@ -50,7 +51,7 @@ export default function Nav() {
         <nav
           id={panelId}
           className={`nav__links${open ? ' is-open' : ''}`}
-          aria-label="Main"
+          aria-label="Päävalikko"
         >
           {LINKS.map(({ to, label }) => (
             <NavLink

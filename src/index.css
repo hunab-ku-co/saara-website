@@ -1,54 +1,50 @@
 /* ---------------------------------------------------------------------------
    Design tokens
-   Light is the default; dark is a token swap only, so no component needs to
-   know which theme is active.
+
+   Blues, cream and pale blue are sampled directly from the Kokoomus campaign
+   template rather than eyeballed, so the site matches printed and social
+   material exactly.
+
+   This is a brand-led campaign site, so it deliberately commits to one palette
+   instead of following the visitor's light/dark preference — a candidate's
+   colours should not change depending on a device setting.
 --------------------------------------------------------------------------- */
 :root {
-  --bg: #ffffff;
-  --bg-subtle: #f6f7f9;
-  --surface: #ffffff;
-  --border: #e3e6ea;
-  --text: #14171c;
-  --text-muted: #5b6472;
-  --accent: #2f5bd7;
-  --accent-contrast: #ffffff;
+  --blue: #0b288b;
+  --blue-deep: #071c66;
+  --blue-accent: #3f57a9;
+  --cream: #ece0aa;
+  --pale: #ccdefe;
 
-  --radius: 12px;
-  --shadow: 0 1px 2px rgb(16 24 40 / 6%), 0 8px 24px rgb(16 24 40 / 6%);
+  --bg: #ffffff;
+  --bg-subtle: #f4f6fb;
+  --surface: #ffffff;
+  --border: #dde3f0;
+  --text: #101528;
+  --text-muted: #4d5670;
+
+  --radius: 14px;
+  --shadow: 0 1px 2px rgb(11 40 139 / 8%), 0 10px 30px rgb(11 40 139 / 8%);
 
   /* Fluid scale: the middle term grows with the viewport between the clamps,
-     so type and spacing shrink on phones without a single media query. */
+     so type shrinks on phones without a single media query. */
   --step--1: clamp(0.83rem, 0.79rem + 0.18vw, 0.94rem);
   --step-0: clamp(1rem, 0.95rem + 0.24vw, 1.13rem);
   --step-1: clamp(1.2rem, 1.11rem + 0.44vw, 1.5rem);
   --step-2: clamp(1.44rem, 1.28rem + 0.8vw, 2rem);
   --step-3: clamp(1.73rem, 1.45rem + 1.4vw, 2.67rem);
-  --step-4: clamp(2.07rem, 1.6rem + 2.36vw, 3.55rem);
+  --step-4: clamp(2.07rem, 1.5rem + 2.85vw, 3.9rem);
 
   --space-xs: 0.5rem;
   --space-sm: 0.75rem;
   --space-md: 1.25rem;
   --space-lg: 2rem;
-  --space-xl: clamp(2.5rem, 1.8rem + 3.5vw, 5rem);
+  --space-xl: clamp(2.75rem, 2rem + 3.75vw, 5.5rem);
 
-  --container: 68rem;
-  --nav-h: 3.75rem;
+  --container: 70rem;
+  --nav-h: 4rem;
 
-  color-scheme: light dark;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --bg: #0f1216;
-    --bg-subtle: #151a21;
-    --surface: #161b22;
-    --border: #262d38;
-    --text: #e8ecf1;
-    --text-muted: #9aa5b4;
-    --accent: #7ea2ff;
-    --accent-contrast: #0f1216;
-    --shadow: 0 1px 2px rgb(0 0 0 / 40%), 0 8px 24px rgb(0 0 0 / 30%);
-  }
+  color-scheme: light;
 }
 
 /* ---------------------------------------------------------------------------
@@ -103,8 +99,7 @@ body {
   overflow-x: hidden;
 }
 
-/* Column layout so the footer sits at the bottom on short pages (404, Contact)
-   instead of floating mid-screen. */
+/* Column layout so the footer sits at the bottom on short pages. */
 #root {
   display: flex;
   flex-direction: column;
@@ -131,9 +126,12 @@ select {
 h1,
 h2,
 h3 {
-  line-height: 1.15;
-  /* Long product names and URLs are the usual cause of mobile overflow. */
+  line-height: 1.08;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  /* Long Finnish compounds are the usual cause of mobile overflow. */
   overflow-wrap: break-word;
+  hyphens: auto;
   text-wrap: balance;
 }
 
@@ -143,26 +141,25 @@ p {
 
 h1 {
   font-size: var(--step-4);
-  letter-spacing: -0.02em;
 }
 
 h2 {
   font-size: var(--step-3);
-  letter-spacing: -0.015em;
 }
 
 h3 {
   font-size: var(--step-1);
+  letter-spacing: -0.01em;
 }
 
 a {
-  color: var(--accent);
+  color: var(--blue);
   text-decoration-thickness: 1px;
   text-underline-offset: 0.2em;
 }
 
 :focus-visible {
-  outline: 2px solid var(--accent);
+  outline: 3px solid var(--blue-accent);
   outline-offset: 2px;
   border-radius: 4px;
 }
@@ -185,7 +182,20 @@ a {
 
 .section--subtle {
   background: var(--bg-subtle);
-  border-block: 1px solid var(--border);
+}
+
+.section--blue {
+  background: var(--blue);
+  color: #fff;
+}
+
+.section--blue h2,
+.section--blue h3 {
+  color: #fff;
+}
+
+.section--cream {
+  background: var(--cream);
 }
 
 .stack > * + * {
@@ -196,12 +206,21 @@ a {
 .grid {
   display: grid;
   gap: var(--space-md);
-  grid-template-columns: repeat(auto-fit, minmax(min(100%, 16rem), 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 17rem), 1fr));
+}
+
+/* Card headings are h3 under a section h2 on the home page, but h2 directly
+   under the h1 on /teemat. This keeps them looking identical either way, so
+   the heading level can follow the document outline rather than the design. */
+.card__title {
+  font-size: var(--step-1);
+  letter-spacing: -0.01em;
 }
 
 .card {
   background: var(--surface);
   border: 1px solid var(--border);
+  border-top: 4px solid var(--blue);
   border-radius: var(--radius);
   padding: var(--space-md);
   box-shadow: var(--shadow);
@@ -210,19 +229,40 @@ a {
 .lede {
   font-size: var(--step-1);
   color: var(--text-muted);
-  max-width: 42ch;
+  max-width: 46ch;
+}
+
+.section--blue .lede {
+  color: var(--pale);
 }
 
 .muted {
   color: var(--text-muted);
 }
 
+.section--blue .muted {
+  color: var(--pale);
+}
+
 .eyebrow {
   font-size: var(--step--1);
   text-transform: uppercase;
-  letter-spacing: 0.08em;
-  font-weight: 600;
-  color: var(--accent);
+  letter-spacing: 0.14em;
+  font-weight: 700;
+  color: var(--blue);
+}
+
+.section--blue .eyebrow {
+  color: var(--cream);
+}
+
+/* The serif italic lift used across Kokoomus campaign material. */
+.script {
+  font-family: Georgia, 'Times New Roman', serif;
+  font-style: italic;
+  font-weight: 400;
+  letter-spacing: -0.01em;
+  color: var(--pale);
 }
 
 /* ---------------------------------------------------------------------------
@@ -233,22 +273,22 @@ a {
   align-items: center;
   justify-content: center;
   gap: var(--space-xs);
-  min-height: 44px;
-  padding: 0.6rem 1.25rem;
-  border: 1px solid transparent;
+  min-height: 48px;
+  padding: 0.7rem 1.5rem;
+  border: 2px solid transparent;
   border-radius: 999px;
-  background: var(--accent);
-  color: var(--accent-contrast);
-  font-weight: 600;
+  background: var(--blue);
+  color: #fff;
+  font-weight: 700;
   text-decoration: none;
   cursor: pointer;
   transition:
     transform 0.15s ease,
-    opacity 0.15s ease;
+    background 0.15s ease;
 }
 
 .btn:hover {
-  opacity: 0.9;
+  background: var(--blue-deep);
 }
 
 .btn:active {
@@ -257,8 +297,34 @@ a {
 
 .btn--ghost {
   background: transparent;
-  color: var(--text);
-  border-color: var(--border);
+  color: var(--blue);
+  border-color: var(--blue);
+}
+
+.btn--ghost:hover {
+  background: var(--blue);
+  color: #fff;
+}
+
+/* On a blue band the solid button needs to invert to stay legible. */
+.section--blue .btn {
+  background: var(--cream);
+  color: var(--blue-deep);
+}
+
+.section--blue .btn:hover {
+  background: #fff;
+}
+
+.section--blue .btn--ghost {
+  background: transparent;
+  color: #fff;
+  border-color: rgb(255 255 255 / 60%);
+}
+
+.section--blue .btn--ghost:hover {
+  background: #fff;
+  color: var(--blue-deep);
 }
 
 .btn-row {
@@ -274,10 +340,129 @@ a {
   top: 0;
   z-index: 100;
   padding: var(--space-sm) var(--space-md);
-  background: var(--accent);
-  color: var(--accent-contrast);
+  background: var(--cream);
+  color: var(--blue-deep);
+  font-weight: 700;
 }
 
 .skip-link:focus {
   left: 0;
+}
+
+/* ---------------------------------------------------------------------------
+   Placeholder copy
+
+   Every block of text still awaiting real campaign content is wrapped in this,
+   so nothing invented can be mistaken for Saara's actual positions. Delete the
+   wrapper as each piece is filled in; anything still dashed is unfinished.
+--------------------------------------------------------------------------- */
+.placeholder {
+  border: 2px dashed var(--blue-accent);
+  border-radius: var(--radius);
+  background: rgb(204 222 254 / 25%);
+  padding: var(--space-sm) var(--space-md);
+  color: var(--text-muted);
+}
+
+.placeholder::before {
+  content: 'TÄYTETTÄVÄ';
+  display: block;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  color: var(--blue-accent);
+  margin-bottom: 0.35rem;
+}
+
+.section--blue .placeholder {
+  border-color: var(--cream);
+  background: rgb(255 255 255 / 10%);
+  color: #fff;
+}
+
+.section--blue .placeholder::before {
+  color: var(--cream);
+}
+
+/* ---------------------------------------------------------------------------
+   Hero
+--------------------------------------------------------------------------- */
+.hero {
+  background: var(--blue);
+  color: #fff;
+  padding-block: var(--space-xl);
+  /* A soft off-centre glow echoing the swoosh in the party's Canva template. */
+  background-image: radial-gradient(
+    120% 90% at 85% 15%,
+    var(--blue-accent) 0%,
+    transparent 60%
+  );
+}
+
+.hero__inner {
+  display: grid;
+  gap: var(--space-lg);
+  align-items: center;
+}
+
+.hero__photo {
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: 0 20px 50px rgb(7 28 102 / 45%);
+  /* Locks the frame so the layout cannot shift while the photo decodes. */
+  aspect-ratio: 4 / 5;
+}
+
+.hero__photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.hero__name {
+  color: #fff;
+}
+
+@media (min-width: 52em) {
+  .hero__inner {
+    grid-template-columns: 1.15fr 0.85fr;
+    gap: var(--space-xl);
+  }
+}
+
+/* ---------------------------------------------------------------------------
+   Portrait band (blue photo)
+--------------------------------------------------------------------------- */
+.band {
+  display: grid;
+  gap: var(--space-lg);
+  align-items: center;
+}
+
+.band__photo {
+  border-radius: var(--radius);
+  overflow: hidden;
+  /* Squarer on phones: the source has a wide expanse of empty backdrop to the
+     left, which at 3:2 on a narrow screen leaves Saara small in the frame. */
+  aspect-ratio: 1 / 1;
+}
+
+.band__photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  /* She sits right of centre in the original, so keep that side when cropping. */
+  object-position: 68% center;
+}
+
+@media (min-width: 52em) {
+  .band {
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-xl);
+  }
+
+  /* Wider viewports have room for the full composition, negative space included. */
+  .band__photo {
+    aspect-ratio: 3 / 2;
+  }
 }

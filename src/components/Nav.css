@@ -22,10 +22,12 @@
   display: inline-flex;
   align-items: center;
   min-height: 44px;
-  font-weight: 700;
-  font-size: var(--step-1);
+  font-weight: 800;
+  /* "Saara Kiventoyry" is long — it has to stay clear of the hamburger at
+     375px, so this scales down further than the shared type scale would. */
+  font-size: clamp(1rem, 0.88rem + 0.5vw, 1.35rem);
   letter-spacing: -0.02em;
-  color: var(--text);
+  color: var(--blue);
   text-decoration: none;
 }
 
@@ -125,7 +127,8 @@
 }
 
 .nav__link.is-active {
-  color: var(--accent);
+  color: var(--blue);
+  font-weight: 700;
 }
 
 /* --- Desktop: drop the toggle, lay the links out inline ------------------- */
@@ -163,6 +166,6 @@
   }
 
   .nav__link.is-active {
-    background: color-mix(in srgb, var(--accent) 12%, transparent);
+    background: color-mix(in srgb, var(--blue) 12%, transparent);
   }
 }

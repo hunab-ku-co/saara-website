@@ -5,8 +5,9 @@
       "isSinglePageApplication": true,
       "url": [
         "http://localhost/",
-        "http://localhost/about",
-        "http://localhost/contact"
+        "http://localhost/teemat",
+        "http://localhost/tietoa",
+        "http://localhost/yhteystiedot"
       ],
       "numberOfRuns": 3
     },

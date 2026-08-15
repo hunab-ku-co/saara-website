@@ -16,14 +16,6 @@
   font-size: var(--step--1);
 }
 
-.footer__links {
-  display: flex;
-  flex-wrap: wrap;
-  gap: var(--space-md);
-}
-
-.footer__links a {
-  display: inline-flex;
-  align-items: center;
-  min-height: 44px; /* touch target */
+.footer__note {
+  max-width: 46ch;
 }
