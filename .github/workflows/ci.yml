@@ -77,4 +77,8 @@ jobs:
         with:
           name: lighthouse-report
           path: .lighthouseci
+          # .lighthouseci is a dotfile directory, and this action skips hidden
+          # files by default — without this the artifact uploads empty, which
+          # is exactly when you need it: after a failed assertion.
+          include-hidden-files: true
           retention-days: 7
