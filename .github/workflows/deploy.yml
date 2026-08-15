@@ -1,0 +1,58 @@
+name: Deploy
+
+on:
+  push:
+    branches: [main]
+  # Lets you re-publish the current main from the Actions tab without an
+  # empty commit — useful after changing Pages settings or the custom domain.
+  workflow_dispatch:
+
+# Least privilege. `pages: write` publishes the deployment and `id-token: write`
+# mints the OIDC token that proves it came from this workflow — that pairing is
+# what removes the need for a personal access token in secrets.
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# One deploy at a time. cancel-in-progress stays false deliberately: cancelling
+# midway through a publish can leave the site partially updated.
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+
+      - uses: actions/setup-node@v7
+        with:
+          node-version: 24
+          cache: npm
+
+      # `ci` not `install`: fails on a package-lock.json that disagrees with
+      # package.json, so a deploy can never silently resolve different versions
+      # than the ones reviewed on the pull request.
+      - run: npm ci
+
+      # Runs `tsc -b` first, so a type error fails the deploy rather than
+      # shipping a broken bundle.
+      - run: npm run build
+
+      - uses: actions/configure-pages@v6
+
+      - uses: actions/upload-pages-artifact@v5
+        with:
+          path: ./dist
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v5

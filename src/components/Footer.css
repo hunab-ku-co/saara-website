@@ -1,0 +1,29 @@
+.footer {
+  border-top: 1px solid var(--border);
+  background: var(--bg-subtle);
+  padding-block: var(--space-lg);
+  /* Clear the iOS home indicator when the page is scrolled to the bottom. */
+  padding-bottom: max(var(--space-lg), env(safe-area-inset-bottom));
+  margin-top: auto;
+}
+
+.footer__inner {
+  display: flex;
+  flex-wrap: wrap; /* stacks on narrow screens, sits inline from ~30rem up */
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-sm);
+  font-size: var(--step--1);
+}
+
+.footer__links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-md);
+}
+
+.footer__links a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px; /* touch target */
+}

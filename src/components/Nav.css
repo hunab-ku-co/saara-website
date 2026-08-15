@@ -1,0 +1,168 @@
+.nav {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: color-mix(in srgb, var(--bg) 85%, transparent);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--border);
+  padding-top: env(safe-area-inset-top);
+}
+
+.nav__bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-md);
+  min-height: var(--nav-h);
+}
+
+.nav__brand {
+  /* inline-flex + min-height so the link's hit area reaches the 44px floor;
+     the text alone is only ~31px tall. */
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  font-weight: 700;
+  font-size: var(--step-1);
+  letter-spacing: -0.02em;
+  color: var(--text);
+  text-decoration: none;
+}
+
+/* --- Mobile first: the toggle shows, the links collapse into a panel ------ */
+.nav__toggle {
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  margin-right: -0.5rem; /* optically align the icon with the container edge */
+  background: none;
+  border: 0;
+  cursor: pointer;
+}
+
+/* Three bars drawn from one element: the middle is the element itself, the
+   outer two are its pseudo-elements. On open they rotate into a cross. */
+.nav__burger,
+.nav__burger::before,
+.nav__burger::after {
+  display: block;
+  width: 22px;
+  height: 2px;
+  border-radius: 2px;
+  background: var(--text);
+  transition:
+    transform 0.22s ease,
+    opacity 0.15s ease;
+}
+
+.nav__burger::before,
+.nav__burger::after {
+  content: '';
+  position: relative;
+}
+
+.nav__burger::before {
+  top: -7px;
+}
+
+.nav__burger::after {
+  top: 5px;
+}
+
+.nav__burger.is-open {
+  background: transparent;
+}
+
+.nav__burger.is-open::before {
+  transform: translateY(7px) rotate(45deg);
+}
+
+.nav__burger.is-open::after {
+  transform: translateY(-5px) rotate(-45deg);
+}
+
+.nav__links {
+  position: absolute;
+  inset-inline: 0;
+  top: 100%;
+  display: grid;
+  background: var(--bg);
+  border-bottom: 1px solid var(--border);
+  padding: var(--space-xs) var(--space-md) var(--space-md);
+  box-shadow: var(--shadow);
+
+  /* Collapsed by default. visibility (not just opacity) keeps the links out of
+     the tab order while hidden. */
+  visibility: hidden;
+  opacity: 0;
+  transform: translateY(-0.5rem);
+  transition:
+    opacity 0.18s ease,
+    transform 0.18s ease,
+    visibility 0.18s;
+}
+
+.nav__links.is-open {
+  visibility: visible;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.nav__link {
+  display: flex;
+  align-items: center;
+  min-height: 44px;
+  padding-inline: var(--space-xs);
+  color: var(--text);
+  text-decoration: none;
+  font-weight: 500;
+  border-bottom: 1px solid var(--border);
+}
+
+.nav__link:last-child {
+  border-bottom: 0;
+}
+
+.nav__link.is-active {
+  color: var(--accent);
+}
+
+/* --- Desktop: drop the toggle, lay the links out inline ------------------- */
+@media (min-width: 48em) {
+  .nav__toggle {
+    display: none;
+  }
+
+  .nav__links {
+    position: static;
+    display: flex;
+    align-items: center;
+    gap: var(--space-xs);
+    padding: 0;
+    background: none;
+    border: 0;
+    box-shadow: none;
+    visibility: visible;
+    opacity: 1;
+    transform: none;
+  }
+
+  .nav__link {
+    /* Stays 44px above the breakpoint too: tablets are touch devices and land
+       on the horizontal layout, so shrinking these here would reintroduce
+       undersized targets on exactly the devices that need them. */
+    min-height: 44px;
+    padding-inline: var(--space-sm);
+    border-bottom: 0;
+    border-radius: 999px;
+  }
+
+  .nav__link:hover {
+    background: var(--bg-subtle);
+  }
+
+  .nav__link.is-active {
+    background: color-mix(in srgb, var(--accent) 12%, transparent);
+  }
+}

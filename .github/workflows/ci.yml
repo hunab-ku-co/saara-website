@@ -1,0 +1,80 @@
+name: CI
+
+on:
+  pull_request:
+  # Also run on main so the default branch always has a green baseline to
+  # compare pull requests against.
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+# Superseded pushes to the same pull request are pointless work — cancel them.
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+
+      - uses: actions/setup-node@v7
+        with:
+          node-version: 24
+          cache: npm
+
+      - run: npm ci
+
+      - name: Typecheck
+        run: npm run typecheck
+
+      - name: Lint
+        run: npm run lint
+
+      - name: Format check
+        run: npm run format:check
+
+      - name: Build
+        run: npm run build
+
+      # Handed to the lighthouse job so it audits the exact bytes this job
+      # produced rather than building a second, possibly different, copy.
+      - uses: actions/upload-artifact@v7
+        with:
+          name: dist
+          path: dist
+          retention-days: 1
+
+  lighthouse:
+    needs: verify
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+
+      - uses: actions/setup-node@v7
+        with:
+          node-version: 24
+          cache: npm
+
+      - run: npm ci
+
+      - uses: actions/download-artifact@v7
+        with:
+          name: dist
+          path: dist
+
+      # Lighthouse CI emulates a mid-range phone on a throttled connection by
+      # default, so these budgets are mobile budgets.
+      - name: Lighthouse CI
+        run: npm run lhci
+
+      - name: Upload Lighthouse report
+        if: always()
+        uses: actions/upload-artifact@v7
+        with:
+          name: lighthouse-report
+          path: .lighthouseci
+          retention-days: 7
