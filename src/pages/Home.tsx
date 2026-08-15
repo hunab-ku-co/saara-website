@@ -16,10 +16,11 @@ export default function Home() {
         <div className="container hero__inner">
           <div className="stack">
             <p className="eyebrow">Kokoomus</p>
+            {/* Two blocks rather than a <br>: a <br> puts no whitespace into
+                textContent, so the accessible name came out "SaaraKiventoyry".
+                The explicit {' '} survives JSX whitespace trimming. */}
             <h1 className="hero__name">
-              Saara
-              <br />
-              Kiventoyry
+              <span>Saara</span> <span>Kiventoyry</span>
             </h1>
             <p className="placeholder">
               Kampanjan slogan, 1–2 lausetta. Esimerkiksi mitä lähdet ajamaan ja

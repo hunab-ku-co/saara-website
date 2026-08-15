@@ -15,6 +15,9 @@ dist-ssr
 # Lighthouse CI run output
 .lighthouseci
 
+# scripts/visual-check.mjs output
+screenshots
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json

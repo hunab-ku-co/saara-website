@@ -423,6 +423,10 @@ a {
   color: #fff;
 }
 
+.hero__name span {
+  display: block;
+}
+
 @media (min-width: 52em) {
   .hero__inner {
     grid-template-columns: 1.15fr 0.85fr;
