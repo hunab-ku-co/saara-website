@@ -1,7 +1,7 @@
 import { useEffect } from 'react'
 import { useLocation } from 'react-router-dom'
 
-const SITE = 'Saara Kiventoyry'
+const SITE = 'Saara Kiventöyry'
 const ORIGIN = 'https://saarakiventoyry.fi'
 
 function setMeta(selector: string, attr: 'content' | 'href', value: string) {

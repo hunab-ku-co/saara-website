@@ -5,7 +5,7 @@ import { usePageMeta } from '../hooks/usePageMeta'
 const SLOTS = [1, 2, 3, 4]
 
 export default function Teemat() {
-  usePageMeta('Teemat', 'Saara Kiventoyryn vaaliteemat.')
+  usePageMeta('Teemat', 'Saara Kiventöyryn vaaliteemat.')
 
   return (
     <section className="section">

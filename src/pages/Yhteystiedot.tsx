@@ -1,7 +1,7 @@
 import { usePageMeta } from '../hooks/usePageMeta'
 
 export default function Yhteystiedot() {
-  usePageMeta('Yhteystiedot', 'Ota yhteyttä Saara Kiventoyryyn.')
+  usePageMeta('Yhteystiedot', 'Ota yhteyttä Saara Kiventöyryyn.')
 
   return (
     <section className="section">

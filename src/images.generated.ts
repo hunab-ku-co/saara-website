@@ -18,7 +18,7 @@ export type ImageName = 'saara-portrait' | 'saara-blue'
 
 export const IMAGES: Record<ImageName, GeneratedImage> = {
   'saara-portrait': {
-    alt: 'Saara Kiventoyry',
+    alt: 'Saara Kiventöyry',
     width: 1418,
     height: 1772,
     aspect: 0.8002,
@@ -29,27 +29,27 @@ export const IMAGES: Record<ImageName, GeneratedImage> = {
           {
             width: 360,
             url: '/img/saara-portrait-360.avif',
-            bytes: 8653,
+            bytes: 8772,
           },
           {
             width: 560,
             url: '/img/saara-portrait-560.avif',
-            bytes: 15799,
+            bytes: 15868,
           },
           {
             width: 760,
             url: '/img/saara-portrait-760.avif',
-            bytes: 24702,
+            bytes: 24812,
           },
           {
             width: 1000,
             url: '/img/saara-portrait-1000.avif',
-            bytes: 38164,
+            bytes: 37685,
           },
           {
             width: 1418,
             url: '/img/saara-portrait-1418.avif',
-            bytes: 69887,
+            bytes: 63149,
           },
         ],
       },
@@ -59,27 +59,27 @@ export const IMAGES: Record<ImageName, GeneratedImage> = {
           {
             width: 360,
             url: '/img/saara-portrait-360.webp',
-            bytes: 11726,
+            bytes: 11950,
           },
           {
             width: 560,
             url: '/img/saara-portrait-560.webp',
-            bytes: 22190,
+            bytes: 22054,
           },
           {
             width: 760,
             url: '/img/saara-portrait-760.webp',
-            bytes: 34804,
+            bytes: 35046,
           },
           {
             width: 1000,
             url: '/img/saara-portrait-1000.webp',
-            bytes: 51210,
+            bytes: 50426,
           },
           {
             width: 1418,
             url: '/img/saara-portrait-1418.webp',
-            bytes: 88640,
+            bytes: 83338,
           },
         ],
       },
@@ -89,34 +89,34 @@ export const IMAGES: Record<ImageName, GeneratedImage> = {
           {
             width: 360,
             url: '/img/saara-portrait-360.jpg',
-            bytes: 25899,
+            bytes: 26019,
           },
           {
             width: 560,
             url: '/img/saara-portrait-560.jpg',
-            bytes: 50438,
+            bytes: 49684,
           },
           {
             width: 760,
             url: '/img/saara-portrait-760.jpg',
-            bytes: 81698,
+            bytes: 79879,
           },
           {
             width: 1000,
             url: '/img/saara-portrait-1000.jpg',
-            bytes: 127605,
+            bytes: 122675,
           },
           {
             width: 1418,
             url: '/img/saara-portrait-1418.jpg',
-            bytes: 207051,
+            bytes: 208229,
           },
         ],
       },
     },
   },
   'saara-blue': {
-    alt: 'Saara Kiventoyry',
+    alt: 'Saara Kiventöyry',
     width: 2787,
     height: 1984,
     aspect: 1.4047,

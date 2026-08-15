@@ -2,7 +2,7 @@ import Photo from '../components/Photo'
 import { usePageMeta } from '../hooks/usePageMeta'
 
 export default function Tietoa() {
-  usePageMeta('Tietoa minusta', 'Kuka on Saara Kiventoyry.')
+  usePageMeta('Tietoa minusta', 'Kuka on Saara Kiventöyry.')
 
   return (
     <>
@@ -11,7 +11,7 @@ export default function Tietoa() {
           <Photo
             className="band__photo"
             name="saara-blue"
-            alt="Saara Kiventoyry"
+            alt="Saara Kiventöyry"
             sizes="(min-width: 52em) 46vw, 92vw"
           />
           <div className="stack">

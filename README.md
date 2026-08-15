@@ -1,6 +1,6 @@
 # saara-website
 
-Campaign site for **Saara Kiventoyry** (Kokoomus), served at
+Campaign site for **Saara Kiventöyry** (Kokoomus), served at
 [saarakiventoyry.fi](https://saarakiventoyry.fi). React + TypeScript, built with
 Vite, deployed to GitHub Pages by GitHub Actions.
 
@@ -59,8 +59,8 @@ original changes.
 Each photo is emitted as AVIF, WebP and JPEG across several widths, never
 upscaled beyond the source. Quality settings use 4:4:4 chroma to protect skin
 tones and facial detail — measured mean per-channel difference against the
-original is 0.78/255, which is imperceptible. The full-width portrait is 68 kB
-in AVIF against 202 kB for the equivalent JPEG.
+original is 0.90/255, which is imperceptible. The full-width portrait is 62 kB
+in AVIF against 203 kB for the equivalent JPEG.
 
 **EXIF and XMP are deliberately stripped** from everything published. The
 originals carry both, which can include GPS coordinates and camera serials.

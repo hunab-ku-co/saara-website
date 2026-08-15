@@ -23,7 +23,7 @@
   align-items: center;
   min-height: 44px;
   font-weight: 800;
-  /* "Saara Kiventoyry" is long — it has to stay clear of the hamburger at
+  /* "Saara Kiventöyry" is long — it has to stay clear of the hamburger at
      375px, so this scales down further than the shared type scale would. */
   font-size: clamp(1rem, 0.88rem + 0.5vw, 1.35rem);
   letter-spacing: -0.02em;

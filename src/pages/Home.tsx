@@ -4,8 +4,8 @@ import { usePageMeta } from '../hooks/usePageMeta'
 
 export default function Home() {
   usePageMeta(
-    'Saara Kiventoyry',
-    'Saara Kiventoyry — Kokoomuksen ehdokas. Tutustu teemoihin ja ota yhteyttä.',
+    'Saara Kiventöyry',
+    'Saara Kiventöyry — Kokoomuksen ehdokas. Tutustu teemoihin ja ota yhteyttä.',
   )
 
   return (
@@ -17,10 +17,10 @@ export default function Home() {
           <div className="stack">
             <p className="eyebrow">Kokoomus</p>
             {/* Two blocks rather than a <br>: a <br> puts no whitespace into
-                textContent, so the accessible name came out "SaaraKiventoyry".
+                textContent, so the accessible name came out "SaaraKiventöyry".
                 The explicit {' '} survives JSX whitespace trimming. */}
             <h1 className="hero__name">
-              <span>Saara</span> <span>Kiventoyry</span>
+              <span>Saara</span> <span>Kiventöyry</span>
             </h1>
             <p className="placeholder">
               Kampanjan slogan, 1–2 lausetta. Esimerkiksi mitä lähdet ajamaan ja
@@ -42,7 +42,7 @@ export default function Home() {
           <Photo
             className="hero__photo"
             name="saara-portrait"
-            alt="Saara Kiventoyry"
+            alt="Saara Kiventöyry"
             priority
             sizes="(min-width: 52em) 34vw, 92vw"
           />

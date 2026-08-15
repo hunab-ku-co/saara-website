@@ -31,7 +31,7 @@ export default function Nav() {
     <header className="nav">
       <div className="container nav__bar">
         <NavLink to="/" className="nav__brand">
-          Saara Kiventoyry
+          Saara Kiventöyry
         </NavLink>
 
         <button

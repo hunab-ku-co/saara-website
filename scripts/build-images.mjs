@@ -23,13 +23,13 @@ const IMAGES = [
     name: 'saara-portrait',
     file: 'saara-portrait.jpg',
     widths: [360, 560, 760, 1000, 1418],
-    alt: 'Saara Kiventoyry',
+    alt: 'Saara Kiventöyry',
   },
   {
     name: 'saara-blue',
     file: 'saara-blue.jpg',
     widths: [640, 1024, 1440, 1920, 2400, 2787],
-    alt: 'Saara Kiventoyry',
+    alt: 'Saara Kiventöyry',
   },
 ]
 
