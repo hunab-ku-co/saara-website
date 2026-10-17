@@ -20,7 +20,6 @@ Outstanding, by file:
 | `src/pages/Teemat.tsx`       | Done. Three themes; the essay opens from the title              |
 | `src/pages/Tietoa.tsx`       | Done. Biography and positions of trust                          |
 | `src/pages/Yhteystiedot.tsx` | Email, phone, social links                                      |
-| `src/components/Footer.tsx`  | Election-advertising identifier / funder disclosure if required |
 
 Delete the `placeholder` class as each is filled in. Anything still dashed on
 the live site is unfinished.

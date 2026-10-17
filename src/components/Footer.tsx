@@ -5,10 +5,6 @@ export default function Footer() {
     <footer className="footer">
       <div className="container footer__inner">
         <p>© {new Date().getFullYear()} Saara Kiventöyry</p>
-        <p className="footer__note placeholder">
-          Vaalimainonnan tunniste ja maksajatiedot, jos vaalilaki niitä
-          edellyttää.
-        </p>
       </div>
     </footer>
   )
