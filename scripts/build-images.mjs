@@ -28,10 +28,19 @@ const IMAGES = [
   {
     name: 'saara-blue',
     file: 'saara-blue.jpg',
-    widths: [640, 1024, 1440, 1920, 2400, 2787],
+    // Wide wall; the head starts about a third of the way down. This 3:2
+    // extract is head and shoulders. The window is placed so the blue on
+    // either side of the silhouette matches; the full file stays in originals.
+    extract: { left: 594, top: 560, width: 1500, height: 1000 },
+    widths: [640, 1024, 1440, 1500],
     alt: 'Saara Kiventöyry',
   },
 ]
+
+function pipeline(image) {
+  const input = sharp(join(SRC, image.file))
+  return image.extract ? input.extract(image.extract) : input
+}
 
 // Quality settings tuned to preserve facial detail and skin tones. 4:4:4 chroma
 // avoids the colour smearing that 4:2:0 causes around lips and eyes — it costs
@@ -63,14 +72,19 @@ const manifest = {}
 let totalBytes = 0
 
 for (const image of IMAGES) {
-  const input = join(SRC, image.file)
-  const meta = await sharp(input).metadata()
-  const widths = image.widths.filter((w) => w <= meta.width)
+  // metadata() describes the file on disk, before extract(). The published
+  // frame is the crop when one is set.
+  const fileMeta = await sharp(join(SRC, image.file)).metadata()
+  const frame = {
+    width: image.extract?.width ?? fileMeta.width,
+    height: image.extract?.height ?? fileMeta.height,
+  }
+  const widths = image.widths.filter((w) => w <= frame.width)
   if (
-    !widths.includes(meta.width) &&
-    image.widths.some((w) => w > meta.width)
+    !widths.includes(frame.width) &&
+    image.widths.some((w) => w > frame.width)
   ) {
-    widths.push(meta.width)
+    widths.push(frame.width)
   }
 
   const sources = {}
@@ -82,7 +96,7 @@ for (const image of IMAGES) {
       // including any GPS and camera serials — into published files. The ICC
       // profile is normalised to sRGB instead, so colour still renders right.
       const info = await apply(
-        sharp(input)
+        pipeline(image)
           .resize({ width, withoutEnlargement: true })
           .toColourspace('srgb'),
       ).toFile(join(OUT, file))
@@ -93,11 +107,11 @@ for (const image of IMAGES) {
     sources[ext] = { type, entries }
   }
 
-  const aspect = meta.width / meta.height
+  const aspect = frame.width / frame.height
   manifest[image.name] = {
     alt: image.alt,
-    width: meta.width,
-    height: meta.height,
+    width: frame.width,
+    height: frame.height,
     aspect: Number(aspect.toFixed(4)),
     sources,
   }
@@ -106,7 +120,7 @@ for (const image of IMAGES) {
   const sizeOf = (ext) =>
     (sources[ext].entries.at(-1).bytes / 1024).toFixed(0) + 'kB'
   console.log(
-    `${image.name.padEnd(16)} ${meta.width}x${meta.height} -> ${widths.length} widths ` +
+    `${image.name.padEnd(16)} ${frame.width}x${frame.height} -> ${widths.length} widths ` +
       `(max ${largest}: avif ${sizeOf('avif')}, webp ${sizeOf('webp')}, jpg ${sizeOf('jpg')})`,
   )
 }
@@ -114,7 +128,7 @@ for (const image of IMAGES) {
 // Social preview card. Link unfurls matter a lot for a campaign, and the
 // platforms that render them mostly still want a plain landscape JPEG.
 const OG = { width: 1200, height: 630 }
-const ogInfo = await sharp(join(SRC, 'saara-blue.jpg'))
+const ogInfo = await pipeline(IMAGES.find((image) => image.name === 'saara-blue'))
   .resize({ ...OG, fit: 'cover', position: 'attention' })
   .jpeg({ quality: 86, mozjpeg: true })
   .toFile(join(OUT, 'og.jpg'))

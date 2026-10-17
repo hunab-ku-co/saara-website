@@ -455,8 +455,8 @@ a {
 .band__photo {
   border-radius: var(--radius);
   overflow: hidden;
-  /* Squarer on phones: the source has a wide expanse of empty backdrop to the
-     left, which at 3:2 on a narrow screen leaves Saara small in the frame. */
+  /* Square on a phone, where a 3:2 frame would shrink the face. The file is
+     already centred, so object-position: center keeps that framing. */
   aspect-ratio: 1 / 1;
 }
 
@@ -464,8 +464,7 @@ a {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  /* She sits right of centre in the original, so keep that side when cropping. */
-  object-position: 68% center;
+  object-position: center;
 }
 
 @media (min-width: 52em) {
@@ -474,7 +473,6 @@ a {
     gap: var(--space-xl);
   }
 
-  /* Wider viewports have room for the full composition, negative space included. */
   .band__photo {
     aspect-ratio: 3 / 2;
   }

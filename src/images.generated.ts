@@ -17,215 +17,185 @@ export type GeneratedImage = {
 export type ImageName = 'saara-portrait' | 'saara-blue'
 
 export const IMAGES: Record<ImageName, GeneratedImage> = {
-  'saara-portrait': {
-    alt: 'Saara Kiventöyry',
-    width: 1418,
-    height: 1772,
-    aspect: 0.8002,
-    sources: {
-      avif: {
-        type: 'image/avif',
-        entries: [
+  "saara-portrait": {
+    "alt": "Saara Kiventöyry",
+    "width": 1418,
+    "height": 1772,
+    "aspect": 0.8002,
+    "sources": {
+      "avif": {
+        "type": "image/avif",
+        "entries": [
           {
-            width: 360,
-            url: '/img/saara-portrait-360.avif',
-            bytes: 8772,
+            "width": 360,
+            "url": "/img/saara-portrait-360.avif",
+            "bytes": 8772
           },
           {
-            width: 560,
-            url: '/img/saara-portrait-560.avif',
-            bytes: 15868,
+            "width": 560,
+            "url": "/img/saara-portrait-560.avif",
+            "bytes": 15868
           },
           {
-            width: 760,
-            url: '/img/saara-portrait-760.avif',
-            bytes: 24812,
+            "width": 760,
+            "url": "/img/saara-portrait-760.avif",
+            "bytes": 24812
           },
           {
-            width: 1000,
-            url: '/img/saara-portrait-1000.avif',
-            bytes: 37685,
+            "width": 1000,
+            "url": "/img/saara-portrait-1000.avif",
+            "bytes": 37685
           },
           {
-            width: 1418,
-            url: '/img/saara-portrait-1418.avif',
-            bytes: 63149,
-          },
-        ],
+            "width": 1418,
+            "url": "/img/saara-portrait-1418.avif",
+            "bytes": 63149
+          }
+        ]
       },
-      webp: {
-        type: 'image/webp',
-        entries: [
+      "webp": {
+        "type": "image/webp",
+        "entries": [
           {
-            width: 360,
-            url: '/img/saara-portrait-360.webp',
-            bytes: 11950,
+            "width": 360,
+            "url": "/img/saara-portrait-360.webp",
+            "bytes": 11950
           },
           {
-            width: 560,
-            url: '/img/saara-portrait-560.webp',
-            bytes: 22054,
+            "width": 560,
+            "url": "/img/saara-portrait-560.webp",
+            "bytes": 22054
           },
           {
-            width: 760,
-            url: '/img/saara-portrait-760.webp',
-            bytes: 35046,
+            "width": 760,
+            "url": "/img/saara-portrait-760.webp",
+            "bytes": 35046
           },
           {
-            width: 1000,
-            url: '/img/saara-portrait-1000.webp',
-            bytes: 50426,
+            "width": 1000,
+            "url": "/img/saara-portrait-1000.webp",
+            "bytes": 50426
           },
           {
-            width: 1418,
-            url: '/img/saara-portrait-1418.webp',
-            bytes: 83338,
-          },
-        ],
+            "width": 1418,
+            "url": "/img/saara-portrait-1418.webp",
+            "bytes": 83338
+          }
+        ]
       },
-      jpg: {
-        type: 'image/jpeg',
-        entries: [
+      "jpg": {
+        "type": "image/jpeg",
+        "entries": [
           {
-            width: 360,
-            url: '/img/saara-portrait-360.jpg',
-            bytes: 26019,
+            "width": 360,
+            "url": "/img/saara-portrait-360.jpg",
+            "bytes": 26019
           },
           {
-            width: 560,
-            url: '/img/saara-portrait-560.jpg',
-            bytes: 49684,
+            "width": 560,
+            "url": "/img/saara-portrait-560.jpg",
+            "bytes": 49684
           },
           {
-            width: 760,
-            url: '/img/saara-portrait-760.jpg',
-            bytes: 79879,
+            "width": 760,
+            "url": "/img/saara-portrait-760.jpg",
+            "bytes": 79879
           },
           {
-            width: 1000,
-            url: '/img/saara-portrait-1000.jpg',
-            bytes: 122675,
+            "width": 1000,
+            "url": "/img/saara-portrait-1000.jpg",
+            "bytes": 122675
           },
           {
-            width: 1418,
-            url: '/img/saara-portrait-1418.jpg',
-            bytes: 208229,
-          },
-        ],
-      },
-    },
+            "width": 1418,
+            "url": "/img/saara-portrait-1418.jpg",
+            "bytes": 208229
+          }
+        ]
+      }
+    }
   },
-  'saara-blue': {
-    alt: 'Saara Kiventöyry',
-    width: 2787,
-    height: 1984,
-    aspect: 1.4047,
-    sources: {
-      avif: {
-        type: 'image/avif',
-        entries: [
+  "saara-blue": {
+    "alt": "Saara Kiventöyry",
+    "width": 1500,
+    "height": 1000,
+    "aspect": 1.5,
+    "sources": {
+      "avif": {
+        "type": "image/avif",
+        "entries": [
           {
-            width: 640,
-            url: '/img/saara-blue-640.avif',
-            bytes: 8351,
+            "width": 640,
+            "url": "/img/saara-blue-640.avif",
+            "bytes": 14224
           },
           {
-            width: 1024,
-            url: '/img/saara-blue-1024.avif',
-            bytes: 19427,
+            "width": 1024,
+            "url": "/img/saara-blue-1024.avif",
+            "bytes": 36504
           },
           {
-            width: 1440,
-            url: '/img/saara-blue-1440.avif',
-            bytes: 39492,
+            "width": 1440,
+            "url": "/img/saara-blue-1440.avif",
+            "bytes": 71748
           },
           {
-            width: 1920,
-            url: '/img/saara-blue-1920.avif',
-            bytes: 76098,
-          },
-          {
-            width: 2400,
-            url: '/img/saara-blue-2400.avif',
-            bytes: 122874,
-          },
-          {
-            width: 2787,
-            url: '/img/saara-blue-2787.avif',
-            bytes: 177419,
-          },
-        ],
+            "width": 1500,
+            "url": "/img/saara-blue-1500.avif",
+            "bytes": 80722
+          }
+        ]
       },
-      webp: {
-        type: 'image/webp',
-        entries: [
+      "webp": {
+        "type": "image/webp",
+        "entries": [
           {
-            width: 640,
-            url: '/img/saara-blue-640.webp',
-            bytes: 10556,
+            "width": 640,
+            "url": "/img/saara-blue-640.webp",
+            "bytes": 18906
           },
           {
-            width: 1024,
-            url: '/img/saara-blue-1024.webp',
-            bytes: 25222,
+            "width": 1024,
+            "url": "/img/saara-blue-1024.webp",
+            "bytes": 50020
           },
           {
-            width: 1440,
-            url: '/img/saara-blue-1440.webp',
-            bytes: 53750,
+            "width": 1440,
+            "url": "/img/saara-blue-1440.webp",
+            "bytes": 103690
           },
           {
-            width: 1920,
-            url: '/img/saara-blue-1920.webp',
-            bytes: 108062,
-          },
-          {
-            width: 2400,
-            url: '/img/saara-blue-2400.webp',
-            bytes: 183696,
-          },
-          {
-            width: 2787,
-            url: '/img/saara-blue-2787.webp',
-            bytes: 278578,
-          },
-        ],
+            "width": 1500,
+            "url": "/img/saara-blue-1500.webp",
+            "bytes": 119190
+          }
+        ]
       },
-      jpg: {
-        type: 'image/jpeg',
-        entries: [
+      "jpg": {
+        "type": "image/jpeg",
+        "entries": [
           {
-            width: 640,
-            url: '/img/saara-blue-640.jpg',
-            bytes: 28049,
+            "width": 640,
+            "url": "/img/saara-blue-640.jpg",
+            "bytes": 38701
           },
           {
-            width: 1024,
-            url: '/img/saara-blue-1024.jpg',
-            bytes: 62859,
+            "width": 1024,
+            "url": "/img/saara-blue-1024.jpg",
+            "bytes": 92411
           },
           {
-            width: 1440,
-            url: '/img/saara-blue-1440.jpg',
-            bytes: 119889,
+            "width": 1440,
+            "url": "/img/saara-blue-1440.jpg",
+            "bytes": 185629
           },
           {
-            width: 1920,
-            url: '/img/saara-blue-1920.jpg',
-            bytes: 222171,
-          },
-          {
-            width: 2400,
-            url: '/img/saara-blue-2400.jpg',
-            bytes: 376618,
-          },
-          {
-            width: 2787,
-            url: '/img/saara-blue-2787.jpg',
-            bytes: 550381,
-          },
-        ],
-      },
-    },
-  },
+            "width": 1500,
+            "url": "/img/saara-blue-1500.jpg",
+            "bytes": 202237
+          }
+        ]
+      }
+    }
+  }
 }
