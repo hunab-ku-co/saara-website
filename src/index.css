@@ -349,6 +349,19 @@ a {
   left: 0;
 }
 
+/* Clips text that should be read, not seen. Used for the new-tab hint. */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
 /* ---------------------------------------------------------------------------
    Placeholder copy
 
@@ -475,6 +488,90 @@ a {
 
   .band__photo {
     aspect-ratio: 3 / 2;
+  }
+}
+
+/* ---------------------------------------------------------------------------
+   Facebook invite (home, after the themes)
+
+   The whole card is the link. The portrait is the click target; the word
+   Facebook and the pill only label where it goes.
+--------------------------------------------------------------------------- */
+.fb {
+  background: var(--bg-subtle);
+}
+
+.fb-card {
+  position: relative;
+  display: grid;
+  gap: var(--space-lg);
+  align-items: center;
+  padding: var(--space-sm);
+  color: inherit;
+  text-decoration: none;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: calc(var(--radius) + 8px);
+  box-shadow: var(--shadow);
+}
+
+.fb-card:hover {
+  border-color: var(--blue-accent);
+}
+
+.fb-card:hover .btn {
+  background: var(--blue-deep);
+}
+
+.fb-card__photo {
+  border-radius: var(--radius);
+  overflow: hidden;
+  /* The Facebook profile photo is square. Matching the frame shows it whole. */
+  aspect-ratio: 1 / 1;
+}
+
+.fb-card__photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  transition: transform 0.35s ease;
+}
+
+.fb-card:hover .fb-card__photo img {
+  transform: scale(1.04);
+}
+
+.fb-card__body {
+  padding: var(--space-sm) var(--space-md) var(--space-md);
+}
+
+.fb-card__brand {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+}
+
+.fb-card__brand svg {
+  width: 1.15rem;
+  height: 1.15rem;
+}
+
+@media (min-width: 52em) {
+  .fb-card {
+    grid-template-columns: minmax(16rem, 0.9fr) 1.1fr;
+    gap: var(--space-xl);
+    padding: var(--space-md);
+  }
+
+  .fb-card__body {
+    padding: var(--space-md);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .fb-card:hover .fb-card__photo img {
+    transform: none;
   }
 }
 

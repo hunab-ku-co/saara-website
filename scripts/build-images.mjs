@@ -26,6 +26,13 @@ const IMAGES = [
     alt: 'Saara Kiventöyry',
   },
   {
+    name: 'saara-facebook',
+    file: 'saara-facebook.jpg',
+    // Her public Facebook profile photo. Square already, so no extract.
+    widths: [480, 720],
+    alt: 'Saara Kiventöyry Facebookissa',
+  },
+  {
     name: 'saara-blue',
     file: 'saara-blue.jpg',
     // Wide wall; the head starts about a third of the way down. This 3:2

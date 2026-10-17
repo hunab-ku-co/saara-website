@@ -71,6 +71,43 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      <section className="section fb" aria-labelledby="fb-title">
+        <div className="container">
+          <a
+            className="fb-card"
+            href="https://www.facebook.com/share/16L5KMf2nY9/?mibextid=wwXIfr"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <Photo
+              className="fb-card__photo"
+              name="saara-facebook"
+              alt=""
+              sizes="(min-width: 52em) 36vw, 92vw"
+            />
+            <div className="fb-card__body stack">
+              <p className="eyebrow fb-card__brand">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path
+                    fill="currentColor"
+                    d="M15.1 8.5V6.7c0-.9.2-1.4 1.5-1.4H18V3h-2.2C13 3 11.7 4.4 11.7 6.6v1.9H9.5v2.7h2.2V21h3.2v-9.8h2.4l.4-2.7h-2.6z"
+                  />
+                </svg>
+                Facebook
+              </p>
+              <h2 id="fb-title">Tule katsomaan Facebookissa</h2>
+              <p className="lede">
+                Siellä jaan kuvia ja kuulumisia kampanjasta.
+              </p>
+              <span className="btn">
+                Avaa Facebookissa
+                <span className="sr-only"> (avautuu uuteen välilehteen)</span>
+              </span>
+            </div>
+          </a>
+        </div>
+      </section>
     </>
   )
 }

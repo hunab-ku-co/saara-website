@@ -14,7 +14,7 @@ export type GeneratedImage = {
   sources: Record<string, ImageSource>
 }
 
-export type ImageName = 'saara-portrait' | 'saara-blue'
+export type ImageName = 'saara-portrait' | 'saara-facebook' | 'saara-blue'
 
 export const IMAGES: Record<ImageName, GeneratedImage> = {
   "saara-portrait": {
@@ -110,6 +110,59 @@ export const IMAGES: Record<ImageName, GeneratedImage> = {
             "width": 1418,
             "url": "/img/saara-portrait-1418.jpg",
             "bytes": 208229
+          }
+        ]
+      }
+    }
+  },
+  "saara-facebook": {
+    "alt": "Saara Kiventöyry Facebookissa",
+    "width": 720,
+    "height": 720,
+    "aspect": 1,
+    "sources": {
+      "avif": {
+        "type": "image/avif",
+        "entries": [
+          {
+            "width": 480,
+            "url": "/img/saara-facebook-480.avif",
+            "bytes": 50228
+          },
+          {
+            "width": 720,
+            "url": "/img/saara-facebook-720.avif",
+            "bytes": 94171
+          }
+        ]
+      },
+      "webp": {
+        "type": "image/webp",
+        "entries": [
+          {
+            "width": 480,
+            "url": "/img/saara-facebook-480.webp",
+            "bytes": 76824
+          },
+          {
+            "width": 720,
+            "url": "/img/saara-facebook-720.webp",
+            "bytes": 148160
+          }
+        ]
+      },
+      "jpg": {
+        "type": "image/jpeg",
+        "entries": [
+          {
+            "width": 480,
+            "url": "/img/saara-facebook-480.jpg",
+            "bytes": 92554
+          },
+          {
+            "width": 720,
+            "url": "/img/saara-facebook-720.jpg",
+            "bytes": 166035
           }
         ]
       }
