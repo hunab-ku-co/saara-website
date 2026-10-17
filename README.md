@@ -16,8 +16,8 @@ Outstanding, by file:
 
 | File                         | Needs                                                           |
 | ---------------------------- | --------------------------------------------------------------- |
-| `src/pages/Home.tsx`         | Campaign slogan; election, district and candidate number        |
-| `src/pages/Teemat.tsx`       | Real theme titles and descriptions (4 slots)                    |
+| `src/pages/Home.tsx`         | Election, district and candidate number                         |
+| `src/pages/Teemat.tsx`       | Done. Three themes; the essay opens from the title              |
 | `src/pages/Tietoa.tsx`       | Biography; experience and positions of trust                    |
 | `src/pages/Yhteystiedot.tsx` | Email, phone, social links                                      |
 | `src/components/Footer.tsx`  | Election-advertising identifier / funder disclosure if required |

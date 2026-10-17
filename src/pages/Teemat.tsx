@@ -1,28 +1,54 @@
+import { useEffect } from 'react'
+import { useLocation } from 'react-router-dom'
+import { LEAD, THEMES } from '../content/teemat'
 import { usePageMeta } from '../hooks/usePageMeta'
 
-// Four slots is a common campaign shape. Add or remove entries here as the
-// real themes are decided.
-const SLOTS = [1, 2, 3, 4]
-
 export default function Teemat() {
-  usePageMeta('Teemat', 'Saara Kiventöyryn vaaliteemat.')
+  const { hash } = useLocation()
+
+  usePageMeta('Teemat', LEAD)
+
+  // A home-page card links to /teemat#id. Opening the matching disclosure here
+  // is the only script: the text itself is already in the static HTML.
+  useEffect(() => {
+    const id = decodeURIComponent(hash.replace(/^#/, ''))
+    if (!id) return
+    const el = document.getElementById(id)
+    if (el instanceof HTMLDetailsElement) el.open = true
+  }, [hash])
 
   return (
     <section className="section">
       <div className="container stack">
         <p className="eyebrow">Teemat</p>
         <h1>Vaaliteemat</h1>
-        <p className="placeholder">Lyhyt johdanto teemoihin, 1–2 lausetta.</p>
+        <p className="lede">{LEAD}</p>
 
-        <div className="grid">
-          {SLOTS.map((n) => (
-            <article key={n} className="card stack">
-              <h2 className="card__title">Teema {n}</h2>
-              <p className="placeholder">
-                Otsikko ja 3–5 lauseen kuvaus. Kerro mitä konkreettisesti
-                tapahtuu, jos tämä toteutuu.
-              </p>
-            </article>
+        <div className="point-list">
+          {THEMES.map((theme) => (
+            // Native disclosure, shared name: one theme open at a time, no
+            // client state, and the long text ships in the page HTML.
+            <details
+              key={theme.id}
+              id={theme.id}
+              className="point card"
+              name="teema"
+            >
+              <summary aria-labelledby={`${theme.id}-title`}>
+                <h2 id={`${theme.id}-title`} className="card__title">
+                  {theme.title}
+                </h2>
+                <span className="point__mark" aria-hidden="true" />
+              </summary>
+              <div className="point__body stack">
+                {theme.paragraphs.map((paragraph) => (
+                  <p key={paragraph}>{paragraph}</p>
+                ))}
+                <p className="point__goal">
+                  <strong>Tavoitteeni:</strong> {theme.goal}
+                </p>
+              </div>
+            </details>
           ))}
         </div>
       </div>

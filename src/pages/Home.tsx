@@ -1,12 +1,10 @@
 import { Link } from 'react-router-dom'
 import Photo from '../components/Photo'
+import { LEAD, SLOGAN, THEMES } from '../content/teemat'
 import { usePageMeta } from '../hooks/usePageMeta'
 
 export default function Home() {
-  usePageMeta(
-    'Saara Kiventöyry',
-    'Saara Kiventöyry — Kokoomuksen ehdokas. Tutustu teemoihin ja ota yhteyttä.',
-  )
+  usePageMeta('Saara Kiventöyry', `${SLOGAN}. ${LEAD}`)
 
   return (
     <>
@@ -22,10 +20,8 @@ export default function Home() {
             <h1 className="hero__name">
               <span>Saara</span> <span>Kiventöyry</span>
             </h1>
-            <p className="placeholder">
-              Kampanjan slogan, 1–2 lausetta. Esimerkiksi mitä lähdet ajamaan ja
-              kenelle. Tämä on sivun näkyvin teksti.
-            </p>
+            <p className="script hero__slogan">{SLOGAN}</p>
+            <p className="lede">{LEAD}</p>
             <p className="placeholder">
               Vaalit, vaalipiiri ja ehdokasnumero, kun numero on arvottu.
             </p>
@@ -53,15 +49,19 @@ export default function Home() {
         <div className="container stack">
           <p className="eyebrow">Teemat</p>
           <h2>Mitä lähden ajamaan</h2>
-          <div className="grid">
-            {[1, 2, 3].map((n) => (
-              <article key={n} className="card stack">
-                <h3 className="card__title">Teema {n}</h3>
-                <p className="placeholder">
-                  Teeman otsikko ja 2–3 lauseen kuvaus. Konkreettinen lupaus
-                  toimii paremmin kuin yleinen periaate.
+          <div className="theme-grid">
+            {THEMES.map((theme) => (
+              <Link
+                key={theme.id}
+                className="card theme-card"
+                to={`/teemat#${theme.id}`}
+              >
+                <h3 className="card__title">{theme.title}</h3>
+                <p className="theme-card__goal">
+                  <strong>Tavoitteeni:</strong> {theme.goal}
                 </p>
-              </article>
+                <span className="more">Lue lisää</span>
+              </Link>
             ))}
           </div>
           <div className="btn-row">
