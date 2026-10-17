@@ -16,7 +16,7 @@ Outstanding, by file:
 
 | File                         | Needs                                                           |
 | ---------------------------- | --------------------------------------------------------------- |
-| `src/pages/Home.tsx`         | Election, district and candidate number                         |
+| `src/pages/Home.tsx`         | Candidate number, when it is drawn                              |
 | `src/pages/Teemat.tsx`       | Done. Three themes; the essay opens from the title              |
 | `src/pages/Tietoa.tsx`       | Biography; experience and positions of trust                    |
 | `src/pages/Yhteystiedot.tsx` | Email, phone, social links                                      |

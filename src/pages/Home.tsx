@@ -14,6 +14,9 @@ export default function Home() {
         <div className="container hero__inner">
           <div className="stack">
             <p className="eyebrow">Kokoomus</p>
+            <p className="hero__race">
+              Eduskuntavaalit 2027, Kaakkois&#8209;Suomen vaalipiiri
+            </p>
             {/* Two blocks rather than a <br>: a <br> puts no whitespace into
                 textContent, so the accessible name came out "SaaraKiventöyry".
                 The explicit {' '} survives JSX whitespace trimming. */}
@@ -22,9 +25,6 @@ export default function Home() {
             </h1>
             <p className="script hero__slogan">{SLOGAN}</p>
             <p className="lede">{LEAD}</p>
-            <p className="placeholder">
-              Vaalit, vaalipiiri ja ehdokasnumero, kun numero on arvottu.
-            </p>
             <div className="btn-row">
               <Link className="btn" to="/teemat">
                 Tutustu teemoihin

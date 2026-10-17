@@ -432,6 +432,12 @@ a {
   object-fit: cover;
 }
 
+.hero__race {
+  color: var(--pale);
+  font-weight: 700;
+  max-width: 36ch;
+}
+
 .hero__name {
   color: #fff;
 }
