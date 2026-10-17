@@ -18,7 +18,7 @@ Outstanding, by file:
 | ---------------------------- | --------------------------------------------------------------- |
 | `src/pages/Home.tsx`         | Candidate number, when it is drawn                              |
 | `src/pages/Teemat.tsx`       | Done. Three themes; the essay opens from the title              |
-| `src/pages/Tietoa.tsx`       | Biography; experience and positions of trust                    |
+| `src/pages/Tietoa.tsx`       | Done. Biography and positions of trust                          |
 | `src/pages/Yhteystiedot.tsx` | Email, phone, social links                                      |
 | `src/components/Footer.tsx`  | Election-advertising identifier / funder disclosure if required |
 

@@ -581,6 +581,57 @@ a {
   }
 }
 
+/* Positions of trust. Two groups once there is room; one column on a phone. */
+.roles {
+  display: grid;
+  gap: var(--space-lg);
+  margin-top: var(--space-lg);
+}
+
+.roles h3 {
+  margin-bottom: var(--space-sm);
+}
+
+.roles ul {
+  list-style: none;
+  padding: 0;
+  display: grid;
+  gap: 0.85rem;
+}
+
+.roles li {
+  position: relative;
+  padding-left: 1.15rem;
+  hyphens: manual;
+  overflow-wrap: break-word;
+}
+
+.roles li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.55em;
+  width: 0.45rem;
+  height: 0.45rem;
+  border-radius: 50%;
+  background: var(--cream);
+}
+
+.role__when {
+  display: block;
+  margin-top: 0.1rem;
+  color: var(--pale);
+  font-size: var(--step--1);
+  font-weight: 700;
+}
+
+@media (min-width: 52em) {
+  .roles {
+    grid-template-columns: 1.35fr 0.85fr;
+    gap: var(--space-xl);
+  }
+}
+
 /* ---------------------------------------------------------------------------
    Theme cards and disclosures
 
