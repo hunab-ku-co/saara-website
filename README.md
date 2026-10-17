@@ -19,7 +19,7 @@ Outstanding, by file:
 | `src/pages/Home.tsx`         | Candidate number, when it is drawn                              |
 | `src/pages/Teemat.tsx`       | Done. Three themes; the essay opens from the title              |
 | `src/pages/Tietoa.tsx`       | Done. Biography and positions of trust                          |
-| `src/pages/Yhteystiedot.tsx` | Email, phone, social links                                      |
+| `src/pages/Yhteystiedot.tsx` | Done. Email only: skiventoyry@gmail.com                         |
 
 Delete the `placeholder` class as each is filled in. Anything still dashed on
 the live site is unfinished.

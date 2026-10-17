@@ -1,7 +1,9 @@
 import { usePageMeta } from '../hooks/usePageMeta'
 
+const EMAIL = 'skiventoyry@gmail.com'
+
 export default function Yhteystiedot() {
-  usePageMeta('Yhteystiedot', 'Ota yhteyttä Saara Kiventöyryyn.')
+  usePageMeta('Yhteystiedot', `Ota yhteyttä: ${EMAIL}`)
 
   return (
     <section className="section">
@@ -9,16 +11,10 @@ export default function Yhteystiedot() {
         <p className="eyebrow">Yhteystiedot</p>
         <h1>Ota yhteyttä</h1>
         <p className="lede">Kysy, kommentoi tai tule mukaan kampanjaan.</p>
-
-        <p className="placeholder">
-          Sähköpostiosoite, puhelinnumero jos haluat sen julki, ja linkit
-          somekanaviin (Facebook, Instagram, LinkedIn, X).
-        </p>
-
-        <p className="muted">
-          Sivusto on staattinen, joten lomaketta ei voi ottaa vastaan ilman
-          ulkoista palvelua. Sähköpostilinkki riittää useimmiten; jos haluat
-          lomakkeen, se onnistuu erillisellä palvelulla.
+        <p>
+          <a className="btn" href={`mailto:${EMAIL}`}>
+            {EMAIL}
+          </a>
         </p>
       </div>
     </section>
